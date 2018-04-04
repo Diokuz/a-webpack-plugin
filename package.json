@@ -1,6 +1,6 @@
 {
   "name": "ab-webpack-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Supershort (a b.. z, aa, ab... zz...) css classNames generator",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "classNames",
     "css"
   ],
-  "author": "Dmitriy Kuznetsov <d.o.kuznetsov@tinkoff.ru>",
+  "author": "Dmitriy Kuznetsov <diokuz@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Diokuz/ab-webpack-plugin/issues"
