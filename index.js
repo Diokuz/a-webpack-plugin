@@ -73,7 +73,7 @@ ComponentTreePlugin.prototype.apply = function (compiler) {
       // Traverser all modules and aggreaget them to `allCssModules` variable
       async.each(compilation.chunks, (chunk, callback1) => {
         async.each(chunk.mapModules(c => c), (module, cb) => {
-          if (module.request.endsWith('.css')) {
+          if (typeof module.request === 'string' && module.request.endsWith('.css')) {
             allCssModules.push(module)
           }
 

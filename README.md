@@ -1,4 +1,4 @@
-# ab-webpack-plugin
+# a-webpack-plugin
 
 Isomorphic (universal) css supershort classNames generator for webpack.
 
@@ -18,7 +18,7 @@ If you are crazy `need for mobile speed` super optimizator, you may want to shor
 </div>
 ```
 
-`ab-webpack-plugin` is not stable for now, use it at your own risk)
+`a-webpack-plugin` is not stable for now, use it at your own risk)
 
 But it works)
 
@@ -26,14 +26,14 @@ But it works)
 
 First, you should use `css-loader`
 
-Install `ab-webpack-plugin` plugin
+Install `a-webpack-plugin` plugin
 ```
-npm i ab-webpack-plugin --save-dev
+npm i a-webpack-plugin --save-dev
 ```
 
 Then add three lines of code to your webpack config(s)
 ```js
-const AbPlugin = require('ab-webpack-plugin') // 1
+const APlugin = require('a-webpack-plugin') // 1
 
 ...
 
@@ -46,7 +46,7 @@ const config = {
         loader: 'css-loader',
         options: {
           modules: true,
-          getLocalIdent: AbPlugin.getClassName, // 2 ← define `ab` classnames generator
+          getLocalIdent: APlugin.getClassName, // 2 ← define `ab` classnames generator
         },
       },
       'postcss-loader',
@@ -54,7 +54,7 @@ const config = {
   }
   ...
   plugins: [
-    new AbPlugin(), // 3
+    new APlugin(), // 3
     ...
   ],
   ...
@@ -63,7 +63,7 @@ const config = {
 
 Same if you use ExtractTextPlugin
 ```js
-const AbPlugin = require('ab-webpack-plugin') // 1
+const APlugin = require('a-webpack-plugin') // 1
 
 ...
 
@@ -76,7 +76,7 @@ const config = {
           loader: 'css-loader',
           options: {
             modules: true,
-            getLocalIdent: AbPlugin.getClassName, // 2
+            getLocalIdent: APlugin.getClassName, // 2
           },
         },
         'postcss-loader',
@@ -85,7 +85,7 @@ const config = {
   }
   ...
   plugins: [
-    new AbPlugin(), // 3 ← Before ExtractTextPlugin!
+    new APlugin(), // 3 ← Before ExtractTextPlugin!
     new ExtractTextPlugin(),
     ...
   ],
@@ -93,13 +93,23 @@ const config = {
 }
 ```
 
+## Custor alphabet
+
+Default alphabet is `a..z`. If you want to change it (eg. `A..Za..z0..9`), just change it:
+
+```js
+new APlugin({ alphabet: 'A..Za..z0..9' })
+```
+
+Read more about [incstr package](https://www.npmjs.com/package/incstr).
+
 ## Why I need this plugin?
 
-*Why cant I just use `AbPlugin.getClassName` for `getLocalIdent`?*
+*Why cant I just use `APlugin.getClassName` for `getLocalIdent`?*
 
 Well, the problem is that webpack doesnt guarantee you an order in which css files are processed through loaders. Because of that:
 
 1. Client-side and server-side build may differ
 2. Each build may differ from each other (non-deterministic build)
 
-`ab-webpack-plugin` solves this _order_ problem.
+`a-webpack-plugin` solves this _order_ problem.
