@@ -1,6 +1,6 @@
 {
   "name": "a-webpack-plugin",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Supershort (a, b, c, ... zz) css classNames generator",
   "main": "index.js",
   "scripts": {

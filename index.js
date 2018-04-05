@@ -76,6 +76,7 @@ hashCode = function(str) {
 function ComponentTreePlugin (options) {
   this.options = {
     alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-0123456789',
+    mode: process.env.NODE_ENV || 'production',
     ...options,
   }
 

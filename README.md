@@ -132,9 +132,9 @@ In development, it is important to reload the server (if you have one) each time
 Other option is to use `mode=development` for development, and `mode=production` for production:
 
 ```
-new APlugin({ mode: process.env.NODE_ENV })
+new APlugin({ mode: 'development' })
 ```
 
-`production` mode is default.
+Default value of `mode` options is `process.env.NODE_ENV || 'production'`.
 
 Also, `production` mode may slow down your re-build process, if your project is super big.
