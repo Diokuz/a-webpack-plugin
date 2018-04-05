@@ -97,7 +97,7 @@ If you have server-side rendering, dont forget to do the same thing for your ser
 
 If you use `css-require-hook` instead of webpack-bundling for server-side, you cannot use `a-webpack-plugin` for now (but you will be able to do that in near future!).
 
-## Custor alphabet
+## Custom alphabet
 
 Default alphabet is `a..z`. If you want to change it (eg. `A..Za..z0..9`), just change it:
 
@@ -106,6 +106,23 @@ new APlugin({ alphabet: 'A..Za..z0..9' })
 ```
 
 Read more about [incstr package](https://www.npmjs.com/package/incstr).
+
+## Dev mode
+
+In development, it is important to reload the server (if you have one) each time you change your html/css, because any new css className may change all other classNames.
+
+Other option is to use `mode=development` for development, and `mode=production` for production:
+
+```
+new APlugin({
+  alphabet: 'A..Za..z0..9',
+  mode: process.env.NODE_ENV.
+})
+```
+
+`production` mode is default.
+
+Also, `production` mode may slow down your re-build process, if your project is super big.
 
 ## Why I need this plugin?
 
