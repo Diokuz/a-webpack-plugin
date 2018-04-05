@@ -93,6 +93,10 @@ const config = {
 }
 ```
 
+If you have server-side rendering, dont forget to do the same thing for your server-side bundle.
+
+If you use `css-require-hook` instead of webpack-bundling for server-side, you cannot use `a-webpack-plugin` for now (but you will be able to do that in near future!).
+
 ## Custor alphabet
 
 Default alphabet is `a..z`. If you want to change it (eg. `A..Za..z0..9`), just change it:
