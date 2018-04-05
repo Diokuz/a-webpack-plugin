@@ -8,13 +8,13 @@ If you are crazy `need for mobile speed` super optimizator, you may want to shor
 
 ```html
 <div class="mz nb">
-	<label class="ea">
-		<span class="ej em el eo">Some text</span>
-		<input name="phoneNumber" label="Phone" class="ed eg ef">
-	</label>
-	<div class="nh ni">
-		<span class="mr">Some other text</span>
-	</div>
+  <label class="ea">
+    <span class="ej em el eo">Some text</span>
+    <input name="phoneNumber" label="Phone" class="ed eg ef">
+  </label>
+  <div class="nh ni">
+    <span class="mr">Some other text</span>
+  </div>
 </div>
 ```
 
@@ -135,6 +135,6 @@ Other option is to use `mode=development` for development, and `mode=production`
 new APlugin({ mode: 'development' })
 ```
 
-Default value of `mode` options is `process.env.NODE_ENV || 'production'`.
+Default value of `mode` option is `process.env.NODE_ENV || 'production'`.
 
 Also, `production` mode may slow down your re-build process, if your project is super big.
