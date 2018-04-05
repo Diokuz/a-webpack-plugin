@@ -39,9 +39,10 @@ function createUniqueIdGenerator (extraOpts = {}) {
     // Removed "d" letter to avoid accidental "ad" construct.
     // @see https://medium.com/@mbrevda/just-make-sure-ad-isnt-being-used-as-a-class-name-prefix-or-you-might-suffer-the-wrath-of-the-558d65502793
     do {
-      // Class name cannot start with a number.
+      // Class name cannot start with a number, - or _.
+      // https://stackoverflow.com/questions/448981/which-characters-are-valid-in-css-class-names-selectors
       nextId = generateNextId()
-    } while (/^[0-9]|^(ad)/i.test(nextId))
+    } while (/^[0-9-_]|^(ad)/i.test(nextId))
 
     index[name] = nextId
 
@@ -74,7 +75,7 @@ hashCode = function(str) {
 
 function ComponentTreePlugin (options) {
   this.options = {
-    alphabet: 'abcdefghijklmnopqrstuvwxyz',
+    alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-0123456789',
     ...options,
   }
 

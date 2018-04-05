@@ -1,7 +1,7 @@
 {
   "name": "a-webpack-plugin",
-  "version": "0.1.5",
-  "description": "Supershort (a b.. z, aa, ab... zz...) css classNames generator",
+  "version": "0.1.6",
+  "description": "Supershort (a, b, c, ... zz) css classNames generator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

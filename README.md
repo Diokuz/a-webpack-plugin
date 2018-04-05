@@ -22,6 +22,17 @@ If you are crazy `need for mobile speed` super optimizator, you may want to shor
 
 But it works)
 
+## Why I need this plugin?
+
+*What the problem? Why cant I just use `APlugin.getClassName` for `getLocalIdent`?*
+
+Well, the problem is that webpack doesnt guarantee you an order in which css files are processed through loaders. Because of that:
+
+1. Client-side and server-side build may differ
+2. Each build may differ from each other (non-deterministic build)
+
+`a-webpack-plugin` solves this _order_ problem.
+
 ## How to use
 
 First, you should use `css-loader`
@@ -99,10 +110,17 @@ If you use `css-require-hook` instead of webpack-bundling for server-side, you c
 
 ## Custom alphabet
 
-Default alphabet is `a..z`. If you want to change it (eg. `A..Za..z0..9`), just change it:
+Default alphabet is
+```
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-0123456789
+```
+
+ClassName cannot start with `-` or `_` or digit.
+
+You can customize alphabet:
 
 ```js
-new APlugin({ alphabet: 'A..Za..z0..9' })
+new APlugin({ alphabet: 'abc' })
 ```
 
 Read more about [incstr package](https://www.npmjs.com/package/incstr).
@@ -114,23 +132,9 @@ In development, it is important to reload the server (if you have one) each time
 Other option is to use `mode=development` for development, and `mode=production` for production:
 
 ```
-new APlugin({
-  alphabet: 'A..Za..z0..9',
-  mode: process.env.NODE_ENV.
-})
+new APlugin({ mode: process.env.NODE_ENV })
 ```
 
 `production` mode is default.
 
 Also, `production` mode may slow down your re-build process, if your project is super big.
-
-## Why I need this plugin?
-
-*Why cant I just use `APlugin.getClassName` for `getLocalIdent`?*
-
-Well, the problem is that webpack doesnt guarantee you an order in which css files are processed through loaders. Because of that:
-
-1. Client-side and server-side build may differ
-2. Each build may differ from each other (non-deterministic build)
-
-`a-webpack-plugin` solves this _order_ problem.
