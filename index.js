@@ -92,7 +92,7 @@ ComponentTreePlugin.prototype.apply = function (compiler) {
       const index = context.request.lastIndexOf('!')
       const req = context.request.replace(/^.*[\\\/]/, '').replace('.css', '')
 
-      return `${req}__${localName}-${hashCode(context.request)}`
+      return `${req}__${localName}-${hashCode(getPath(context.request))}`
     }
   }
 

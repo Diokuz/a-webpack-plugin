@@ -26,7 +26,7 @@ But it works)
 
 *What the problem? Why cant I just use `APlugin.getClassName` for `getLocalIdent`?*
 
-Well, the problem is that webpack doesnt guarantee you an order in which css files are processed through loaders. Because of that:
+Well, the problem is that webpack doesn't guarantee you an order in which css files are processed through loaders. Because of that:
 
 1. Client-side and server-side build may differ
 2. Each build may differ from each other (non-deterministic build)
