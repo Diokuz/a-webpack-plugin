@@ -1,0 +1,17 @@
+{
+  "name": "a-webpack3-test-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack && node out.2e1b.js"
+  },
+  "author": "Dmitriy Kuznetsov <diokuz@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "style-loader": "^0.20.3",
+    "webpack": "^3.11.0"
+  }
+}
