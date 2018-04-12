@@ -83,18 +83,19 @@ function ComponentTreePlugin (options) {
   this.createUniqueIdGenerator = createUniqueIdGenerator
 }
 
+const devClassNameGenerator = (context, localIdentName, localName, options) => {
+  const index = context.request.lastIndexOf('!')
+  const req = context.request.replace(/^.*[\\\/]/, '').replace('.css', '')
+
+  return `${req}__${localName}-${hashCode(getPath(context.request))}`
+}
+
+// In case if plugin was not instantiated, and only loader is used
+classNameGenerator = devClassNameGenerator
+
 ComponentTreePlugin.prototype.apply = function (compiler) {
   // It is used in development mode, or in first stage of production build (which is not used in final result)
-  classNameGenerator = this.options.devGenerator
-
-  if (!classNameGenerator) {
-    classNameGenerator = (context, localIdentName, localName, options) => {
-      const index = context.request.lastIndexOf('!')
-      const req = context.request.replace(/^.*[\\\/]/, '').replace('.css', '')
-
-      return `${req}__${localName}-${hashCode(getPath(context.request))}`
-    }
-  }
+  classNameGenerator = classNameGenerator || this.options.devGenerator
 
   compiler.plugin('this-compilation', (compilation) => {
     const allCssModules = []
