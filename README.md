@@ -2,6 +2,8 @@
 
 Isomorphic (universal) css supershort classNames generator for webpack.
 
+Working with ExtractTextPlugin and style-loader (webpack3 and webpack4). Currently not working with mini-css-extract-plugin (see [issue](https://github.com/webpack-contrib/mini-css-extract-plugin/issues/98)).
+
 ## What is this for?
 
 If you are crazy `need for mobile speed` super optimizator, you may want to shortinize your classNames in a hardcore ultimate way:

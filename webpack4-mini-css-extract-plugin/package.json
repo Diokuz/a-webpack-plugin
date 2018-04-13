@@ -1,10 +1,10 @@
 {
-  "name": "a-webpack4-test-plugin",
+  "name": "a-webpack4-mcep-test-plugin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "rm -rf ./build && webpack && node out.7614.js"
+    "test": "rm -rf ./build && webpack"
   },
   "author": "Dmitriy Kuznetsov <diokuz@gmail.com>",
   "license": "ISC",
